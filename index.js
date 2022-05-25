@@ -3,19 +3,19 @@ const mongoClient = new MongoClient("mongodb+srv://IngridaVIGI13:byuhblf77@clust
 mongoClient.connect(function (err, client) {
   const database = client.db("usersdb");
   const collection = database.collection("users");
-    const newUser = { name: "Steve", age: 30 };
-    collection.insertOne(newUser, function (err, result) {
-      if (err) {
-        return console.log("Failed to write an user");
-      }
-      console.log(result);
-      client.close();
-    });
-//   collection.find().toArray(function (err, result) {
-//     if (err) {
-//       return console.log("errr", err);
-//     }
-//     console.log("Result:", result);
-//     client.close();
-//   });
+    // const newUser = { name: "Steve", age: 30 };
+    // collection.insertOne(newUser, function (err, result) {
+    //   if (err) {
+    //     return console.log("Failed to write an user");
+    //   }
+    //   console.log(result);
+    //   client.close();
+    // });
+  collection.find().toArray(function (err, result) {
+    if (err) {
+      return console.log("errr", err);
+    }
+    console.log("Result:", result);
+    client.close();
+  });
 });
