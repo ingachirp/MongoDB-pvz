@@ -1,3 +1,4 @@
+// duomenu i DB perziura per postman
 const MongoClient = require("mongodb").MongoClient;
 const express = require("express");
 const app = express();
