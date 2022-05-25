@@ -21,3 +21,18 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
+
+app.get('/:name', (request, response) => {
+    
+        getUserByName();
+    
+        function getUserByName() {
+            return database.collection("users").find({name: request.params.name}).toArray(function(err, result){
+                if (err) {
+                    response.send(err);
+                } else {
+                    response.send(result);
+                }
+            })
+        }
+    });
